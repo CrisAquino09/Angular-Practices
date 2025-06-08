@@ -1,0 +1,39 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card border-primary mb-3" style="width: 50rem;">
+        <div class="card-header">
+            <h1>Registro De Tareas</h1>
+        </div>
+        <div class="card-body">
+            <th>Ingresa Los Datos Correspondientes</th>
+            <form style="color: rgb(42, 39, 70);">
+                <fieldset>
+                    <div>
+                        <label for="idTarea" class="form-label mt-4">ID TAREA</label>
+                        <input type="number" class="form-control" name="idTarea" placeholder="Ej. 1, 30 ,100" [(ngModel)]="tarea.idTarea" readonly>
+                    </div>
+                    <div>
+                        <label for="descripcion" class="form-label mt-4">DECRIPCION</label>
+                        <input type="text" class="form-control" name="descripcion" placeholder="Ej. Ordenar Archivos, Agendar Citas ..." [(ngModel)]="tarea.descripcion" readonly>
+                    </div>
+                    <div>
+                        <label for="completado" class="form-label mt-4">ESTADO (Completado)</label>
+                        <input type="number" class="form-control" name="completado" placeholder="Ej: 1 (Completado), 0 (En proceso)" [(ngModel)]="tarea.completado" readonly>
+                        <div style="margin-top: 10px; margin-left: 20px;" class="form-check">
+                            <input class="form-check-input" type="radio" name="completado" id="enProceso" [value]="0" [(ngModel)]="tarea.completado">
+                            <label class="form-check-label" for="enProceso">0 - En Proceso</label>
+                        </div>
+                        <div style="margin-left: 20px;" class="form-check">
+                            <input class="form-check-input" type="radio" name="completado" id="completado" [value]="1" [(ngModel)]="tarea.completado">
+                            <label class="form-check-label" for="completado">1 - Completado </label>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button class="btn btn-outline-primary" (click)="editarTarea()">Guardar <i class="fa-solid fa-bookmark"></i></button>
+                        <button style="margin-left: 10px;" class="btn btn-primary" (click)="volverAlHome()">Cancelar <i class="fa-solid fa-ban"></i></button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Lista De Tareas</h1>
+        </div>
+        <div class="card-body">
+            <table class="table" style="text-align: center; color: rgb(59, 55, 55);">
+                <thead>
+                    <tr>
+                        <th scope="col">ID TAREAS</th>
+                        <th scope="col">DESCRIPCION</th>
+                        <th scope="col">COMPLETADA</th>
+                        <th scope="col" colspan="2">OPCIONES</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (tarea of tareas; track tarea.idTarea) {
+                        <tr>
+                            <td>{{tarea.idTarea}}</td>
+                            <td>{{tarea.descripcion}}</td>
+                            <td>{{ tarea.completado === 1 ? 'Completado' : 'En proceso' }}</td>
+                            <td><button type="button" class="btn btn-warning" (click)="editarButton(tarea)"><i class="fa-solid fa-bookmark"></i> EDITAR</button></td>
+                            <td><button type="button" class="btn btn-danger" (click)="eliminarButton(tarea)" ><i class="fa-solid fa-trash"></i> ELIMINAR</button></td>
+                        </tr>
+                    }@empty {
+                        <td colspan="9" style="text-align: center;">No Existen Registros</td>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
